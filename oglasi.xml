@@ -3,9 +3,9 @@
 <Oglasi>
     <Oglas>
         <Kategorija kategorija="stanovi"></Kategorija>
-        <DatumIsteka datum=""></DatumIsteka>
+        <DatumIsteka></DatumIsteka>
         <Cena valuta="RSD"></Cena>
-        <Tekst tekst=""></Tekst>
+        <Tekst></Tekst>
         <Oznaka oznaka=""></Oznaka>
         <Email email="privatni"></Email>
     </Oglas>
