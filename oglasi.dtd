@@ -8,8 +8,6 @@
 <!ELEMENT Email (#PCDATA)>
 
 <!ATTLIST Kategorija kategorija (automobili|stanovi|alati|motori|elektronika) #REQUIRED>
-<!ATTLIST Datum datum CDATA #REQUIRED>
 <!ATTLIST Cena valuta (RSD|EUR) "RSD">
-<!ATTLIST Tekst datum CDATA #REQUIRED>
 <!ATTLIST Oznaka oznaka CDATA #REQUIRED>
 <!ATTLIST Email email (sluzbeni|privatni) #REQUIRED>
