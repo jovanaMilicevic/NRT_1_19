@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <xs:simpleType name="vrednost">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"></xs:minInclusive> 
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="validacija">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+      
+
+    <xs:element name="Oglasi">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Oglas" minOccurs="1" maxOccurs="unbounded">
+
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="Kategorija">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="kategorija" use="required">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:enumeration value="automobili"></xs:enumeration>
+                                                        <xs:enumeration value="stanovi"></xs:enumeration>
+                                                        <xs:enumeration value="alati"></xs:enumeration>
+                                                        <xs:enumeration value="motori"></xs:enumeration>
+                                                        <xs:enumeration value="elektronika"></xs:enumeration>
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+
+
+                            <xs:element name="DatumIsteka">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="([0-2][0-9]|3[01])[.](0[0-9]|1[02])[.][2-9][0-9][0-9][0-9][.]">
+                                        </xs:pattern>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+
+                            <xs:element name="Cena">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="vrednost">
+                                            <xs:attribute name="valuta" use="optional" default="RSD">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:enumeration value="RSD"></xs:enumeration>
+                                                        <xs:enumeration value="EUR"></xs:enumeration>
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+
+
+                            <xs:element name="Tekst">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="10"></xs:minLength>
+                                        <xs:maxLength value="180"></xs:maxLength> 
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+
+                            <xs:element name="Oznaka" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="oznaka" use="required"></xs:attribute>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+
+
+                            <xs:element name="Email" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="validacija">
+                                            <xs:attribute name="email" use="required">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:enumeration value="sluzbeni"></xs:enumeration>
+                                                        <xs:enumeration value="privatni"></xs:enumeration>
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+      
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+
+
+                        </xs:sequence>
+                    </xs:complexType>
+
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
