@@ -1,0 +1,13 @@
+<!ELEMENT Oglasi (Oglas+)>
+<!ELEMENT Oglas (Kategorija, DatumIsteka, Cena, Tekst, Oznaka+, Email*)>
+<!ELEMENT Kategorija (#PCDATA)>
+<!ELEMENT DatumIsteka (#PCDATA)>
+<!ELEMENT Cena (#PCDATA)>
+<!ELEMENT Tekst (#PCDATA)>
+<!ELEMENT Oznaka (#PCDATA)>
+<!ELEMENT Email (#PCDATA)>
+
+<!ATTLIST Kategorija kategorija (automobili|stanovi|alati|motori|elektronika) #REQUIRED>
+<!ATTLIST Cena valuta (RSD|EUR) "RSD">
+<!ATTLIST Oznaka oznaka CDATA #REQUIRED>
+<!ATTLIST Email email (sluzbeni|privatni) #REQUIRED>
