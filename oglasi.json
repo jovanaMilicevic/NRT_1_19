@@ -1,0 +1,22 @@
+[
+    {
+        "Id": 0,
+        "Kategorija": "stanovi",
+        "DatumIsteka": "12.9.2022.",
+        "Cena": {
+            "valuta": "RSD",
+            "vrednost": 180.125
+        },
+        "Tekst": "Prodajem stan brt nzm sta ti nije jasno",
+        "Oznaka": [
+            "boze",
+            "pomozi"
+        ],
+        "Email": [
+            {
+                "email": "privatni",
+                "vrednost": "primer@gmail.com"
+            }
+        ]
+    }
+]
