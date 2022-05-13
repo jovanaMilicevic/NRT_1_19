@@ -21,8 +21,8 @@ app.get("/sviOglasi", (req,res) => {
     axios.get('http://localhost:3000/Oglasi')
     .then(response => {
         let oznakeHTML="";
-        console.log(response.data);
         let prikaz = "";
+        console.log(oznakeHTML)
         response.data.forEach(element => {
         oznakeHTML="";
         element.Oznaka.forEach(o=>oznakeHTML+=`<label type="text" name="oznaka" value="${o}"></label>`)
@@ -37,15 +37,15 @@ app.get("/sviOglasi", (req,res) => {
                     <td>${element.Cena.vrednost}</td>
                     <td>${element.Tekst}</td>
                     <td>
-                        <div id="oznake">${oznakeHTML}</div>
+                        <div id="oznakee">${element.Oznaka}</div>
                     </td>
-                    <td>${element.Email}</td>
+                    <td>${element.Email[0].vrednost}</td>
                     <td><a href="/izmeni/${element.Id}">Izmeni</a></td>
                     <td><a href="/obrisi/${element.Id}">Obrisi</a></td>
                 </tr>
 
             `
-        }); //fali oznaka, fali email
+        }); //fali oznaka, fali email //ne radi <div id="oznakee">${element.oznakeHTML}</div>
         res.send(procitajPogledZaNaziv("/sviOglasi").replace("#{data}", prikaz));
     })
     .catch(error =>{
@@ -65,8 +65,8 @@ app.get("/addOglas", (req,res) =>{
 });
 
 app.post("/snimiOglas", (req,res) => {
-    axios.post("http://localhost:3000/changeOglas", {
-        Id:1,
+    axios.post("http://localhost:3000/addOglas", {
+        Id:parseInt("0"),
         Kategorija:req.body.kategorija,
         DatumIsteka:req.body.datumIsteka,
         Cena:
@@ -81,7 +81,7 @@ app.post("/snimiOglas", (req,res) => {
             vrednost: req.body.vrednost
         }]
         
-    });//oglasi i email nije kako treba
+    });//oglasi i email nije kako treba 
     res.redirect("/sviOglasi");
 });
 
@@ -109,7 +109,7 @@ app.get("/izmeni/:Id", (req, res) =>{
             <br>
             <label>Oznake:</label>
             <input type="text" name="oznaka" value="${response.data.Oznaka}">
-            <label>Email:</label><input type="text" name="email" value="${response.data.Email[0].vrednost}"><select name="tipMaila">
+            <label>Email:</label><input type="text" name="vrednost" value="${response.data.Email[0].vrednost}"><select name="tipMaila">
                                                                                                     <option value="${response.data.Email[0].email}">${response.data.Email[0].email}</option>
                                                                                                     <option value="privatni">Privatni</option>
                                                                                                     <option value="sluzbeni">Sluzbeni</option>
@@ -144,7 +144,7 @@ app.post("/filtrirajPoKategoriji", (req,res) => {
                 </tr>
             `
         });
-        res.send(procitajPogledZaNaziv('sviOglasi').replace("#{data}", prikaz));
+        res.send(procitajPogledZaNaziv('/sviOglasi').replace("#{data}", prikaz));
     }).catch(error => {
         console.log(error);
     });
@@ -152,7 +152,7 @@ app.post("/filtrirajPoKategoriji", (req,res) => {
 
 app.post("/changeOglas", (req,res)=>{
     axios.post("http://localhost:3000/changeOglas",{
-        Id:req.body.Id,
+        Id:parseInt(req.body.Id),
         Kategorija:req.body.kategorija,
         DatumIsteka:req.body.expiringDate,
         Cena:{
