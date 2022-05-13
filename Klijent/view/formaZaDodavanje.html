@@ -11,10 +11,17 @@
         <a href="/sviOglasi">Pogledaj sve oglase</a>
         <a href="/addOglas">Dodaj oglas</a>
     </nav>
-    <form action="/snimiOglas" method="get">
-        <label>Kategorija:</label><input type="text" name="kategorija">
+    <form action="/snimiOglas" method="post">
+        <label>Kategorija:</label><select name="kategorija">
+                                    <option value="automobili">Automobili</option>
+                                    <option value="stanovi">Stanovi</option>
+                                    <option value="alati">Alati</option>
+                                    <option value="motori">Motori</option>
+                                    <option value="elektronika">Elektronika</option>
+                                </select>
+
         <br>
-        <label>Datum isteka oglasa:</label><input type="text" name="datumIsteka">
+        <label>Datum isteka oglasa:</label><input type="date" name="datumIsteka">
         <br>
         <label>Valuta:</label><input type="text" name="valuta">
         <br>
@@ -22,11 +29,25 @@
         <br>
         <label>Tekst:</label><input type="text" name="tekst">
         <br>
-        <label>Oznaka:</label><input type="text" name="oznaka">
+        <label>Oznaka:</label><div><button onClick="dodajOznaku()">Dodaj oznaku</button></div>
+        <div id="oznakee"><input type="text" name="oznaka"><br></div>
         <br>
-        <label>Email:</label><input type="text" name="email">
+        <label>Email:</label><button onClick="dodajEmail()">Dodaj email</button></div>
+        <div id="mejlss"><input type="email" name="vrednost"><select name="email"><option value="Privatni">Privatni</option><option value="Sluzbeni">Sluzbeni</option></select><br></div>
         <br>
         <button type="submit">Dodaj Oglas</button>
     </form>
 </body>
+
+<script>
+    function dodajOznaku()
+    {
+        document.getElementById('oznakee').innerHTML += `<input type="text" name="oznaka"><br>`
+    }
+    function dodajEmail()
+    {
+        document.getElementById('mejlss').innerHTML += `<input type="text" name="vrednost"><select name="email"><option value="Privatni">Privatni</option><option value="Sluzbeni">Sluzbeni</option></select><br>`
+    }
+
+</script>
 </html>
