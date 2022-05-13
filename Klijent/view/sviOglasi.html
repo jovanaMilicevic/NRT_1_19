@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <a href="/sviOglasi">Pogledaj sve oglase</a>
-        <a href="/addOglas">Dodaj oglas</a>
+    <nav style="margin-top: 2%;">
+        <a href="/sviOglasi" style="margin-left: 9%; font-size: 18px;">Pogledaj sve oglase</a>
+        <a href="/addOglas" style="margin-left: 10%; font-size: 18px;">Dodaj oglas</a>
     </nav>
     <div>
-        <form action="/filtrirajPoKategoriji" method="post">
-            <label for="">Naziv kategorije: </label> <select name="filter"><option value="automobili">Automobili</option>
+        <form action="/filtrirajPoKategoriji" method="post" style="margin-top: 2%;">
+            <label style="margin-left: 10%;"><b>Naziv kategorije:</b></label> <select name="filter"><option value="automobili">Automobili</option>
                                                                             <option value="stanovi">Stanovi</option>
                                                                             <option value="alati">Alati</option>
                                                                             <option value="motori">Motori</option>
@@ -21,22 +21,43 @@
             <button type="submit">Filtriraj</button>
         </form>
     </div>
-    <table>
+    <table border="1" style="text-align: center;">
         <thead>
             <tr>
-                <td>ID:</td>
-                <td>Kategorija:</td>
-                <td>Datum isteka:</td>
-                <td>Valuta:</td>
-                <td>Cena:</td>
-                <td>Tekst:</td>
-                <td>Oznake:</td>
-                <td>Email:</td>
+                <td><b>Kategorija:</b></td>
+                <td><b>Datum isteka:</b></td>
+                <td><b>Valuta:</b></td>
+                <td><b>Cena:</b></td>
+                <td><b>Tekst:</b></td>
+                <td><b>Oznake:</b></td>
+                <td><b>Email:</b></td>
             </tr>
         </thead>
+        <br>
         <tbody>
             #{data}
         </tbody>
     </table>
+
+    <style>
+        button{
+            background-color: white;
+            color: black;
+            border: 2px solid grey;
+            border-radius: 5px;
+            width: 5%;
+        }
+        button:hover{
+            background-color: rgba(247, 9, 9, 0.76);
+            color: white;
+        }
+        a
+        {
+            color: black;
+        }
+        a:hover{
+            color: red;
+        }
+    </style>
 </body>
 </html>

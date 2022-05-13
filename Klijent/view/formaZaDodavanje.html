@@ -7,12 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <a href="/sviOglasi">Pogledaj sve oglase</a>
-        <a href="/addOglas">Dodaj oglas</a>
-    </nav>
+    <nav style="margin-top: 2%;">
+        <a href="/sviOglasi" style="margin-left: 9%; font-size: 18px;">Pogledaj sve oglase</a>
+        <a href="/addOglas" style="margin-left: 10%; font-size: 18px;">Dodaj oglas</a>
+    </nav><br>
     <form action="/snimiOglas" method="post">
-        <label>Kategorija:</label><select name="kategorija">
+        <label class="pomeri">Kategorija:</label><select class="pomerimalo" name="kategorija">
                                     <option value="automobili">Automobili</option>
                                     <option value="stanovi">Stanovi</option>
                                     <option value="alati">Alati</option>
@@ -20,23 +20,56 @@
                                     <option value="elektronika">Elektronika</option>
                                 </select>
 
+        <br><br>
+        <label class="pomeri">Datum isteka oglasa:</label><input class="pomerimalo" type="date" name="datumIsteka">
+        <br><br>
+        <label class="pomeri">Valuta:</label><!--<input type="text" name="valuta">--> <select class="pomerimalo" name="valuta"><option value="RSD">RSD</option> <option value="EUR">EUR</option></select>
+        <br><br>
+        <label class="pomeri">Cena:</label><input class="pomerimalo" type="number" name="cena" min="1" required><br>
         <br>
-        <label>Datum isteka oglasa:</label><input type="date" name="datumIsteka">
-        <br>
-        <label>Valuta:</label><input type="text" name="valuta">
-        <br>
-        <label>Cena:</label><input type="text" name="cena">
-        <br>
-        <label>Tekst:</label><input type="text" name="tekst">
-        <br>
-        <label>Oznaka:</label><div><button onClick="dodajOznaku()" type="button">Dodaj oznaku</button></div>
-        <div id="oznakee"><input type="text" name="oznaka"><br></div>
-        <br>
-        <label>Email:</label><button onClick="dodajEmail()" type="button">Dodaj email</button></div>
-        <div id="mejlss"><input type="email" name="vrednost"><select name="email"><option value="Privatni">Privatni</option><option value="Sluzbeni">Sluzbeni</option></select><br></div>
-        <br>
-        <button type="submit">Dodaj Oglas</button>
+        <label class="pomeri">Tekst:</label><input class="pomerimalo" type="text" name="tekst" maxlength="180" minlength="10" required>
+        <br><br>
+        <label class="pomeri">Oznaka:</label><button class="pomerimalo" onClick="dodajOznaku()" type="button">Dodaj oznaku</button>
+        <div id="oznakee"><input class="pomeri" type="text" name="oznaka" required><br></div>
+        <br><br>
+        <label class="pomeri">Email:</label><button onClick="dodajEmail()" class="pomerimalo" type="button">Dodaj email</button></div>
+        <div id="mejlss"><input class="pomeri" type="email" name="vrednost" required><select class="pomerimalo" name="email"><option value="Privatni">Privatni</option><option value="Sluzbeni">Sluzbeni</option></select><br></div>
+        <br><br>
+        <button class="pomeri" type="submit">Dodaj Oglas</button>
     </form>
+
+    <style>
+        button{
+            background-color: white;
+            color: black;
+            border: 2px solid grey;
+            border-radius: 5px;
+            
+        }
+        button:hover{
+            background-color: rgba(247, 9, 9, 0.76);
+            color: white;
+        }
+        a
+        {
+            color: black;
+        }
+        a:hover{
+            color: red;
+        }
+        input{
+            border: none;
+            border-bottom: 2px solid red;
+        }
+        .pomeri
+        {
+            margin-left: 5%;
+        }
+        .pomerimalo
+        {
+            margin-left: 2%;
+        }
+    </style>
 </body>
 
 <script>
@@ -48,6 +81,7 @@
     {
         document.getElementById('mejlss').innerHTML += `<input type="text" name="vrednost"><select name="email"><option value="Privatni">Privatni</option><option value="Sluzbeni">Sluzbeni</option></select><br>`
     }
+
 
 </script>
 </html>

@@ -7,15 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <a href="/sviOglasi">Pogledaj sve oglase</a>
-        <a href="/addOglas">Dodaj oglas</a>
-    </nav>
+    <nav style="margin-top: 2%;">
+        <a href="/sviOglasi" style="margin-left: 9%; font-size: 18px;">Pogledaj sve oglase</a>
+        <a href="/addOglas" style="margin-left: 10%; font-size: 18px;">Dodaj oglas</a>
+    </nav><br>
     <div>
         <form method="post" action="/changeOglas">
             #{data}
-        <button type="submit">Snimi</button>
+        <button style="margin-left: 10%;" type="submit">Snimi</button>
     </form>
     </div>
+
+    <style>
+        button{
+            background-color: white;
+            color: black;
+            border: 2px solid grey;
+            border-radius: 5px;
+            
+        }
+        button:hover{
+            background-color: rgba(247, 9, 9, 0.76);
+            color: white;
+        }
+        a
+        {
+            color: black;
+        }
+        a:hover{
+            color: red;
+        }
+        input{
+            border: none;
+            border-bottom: 2px solid red;
+        }
+    </style>
 </body>
 </html>

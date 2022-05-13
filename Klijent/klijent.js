@@ -30,7 +30,6 @@ app.get("/sviOglasi", (req,res) => {
             prikaz += 
             `
                 <tr>
-                    <td>${element.Id}</td>
                     <td>${element.Kategorija}</td>
                     <td>${element.DatumIsteka}</td>
                     <td>${element.Cena.valuta}</td>
@@ -45,7 +44,7 @@ app.get("/sviOglasi", (req,res) => {
                 </tr>
 
             `
-        }); //fali oznaka, fali email //ne radi <div id="oznakee">${element.oznakeHTML}</div>
+        });                    //<td>${element.Id}</td>
         res.send(procitajPogledZaNaziv("/sviOglasi").replace("#{data}", prikaz));
     })
     .catch(error =>{
@@ -90,7 +89,7 @@ app.get("/izmeni/:Id", (req, res) =>{
         let prikaz =
         `
             <input type="number" name="Id" value=${response.data.Id} hidden>
-            <label>Kategorija:</label> <select name="kategorija">
+            <label style="margin-left:5%">Kategorija:</label> <select name="kategorija">
                                             <option value="${response.data.Kategorija}">${response.data.Kategorija}</option>
                                             <option value="automobili">Automobili</option>
                                             <option value="stanovi">Stanovi</option>
@@ -98,22 +97,22 @@ app.get("/izmeni/:Id", (req, res) =>{
                                             <option value="motori">Motori</option>
                                             <option value="elektronika">Elektronika</option>
                                         </select>
-            <br>
-            <label>Datum isteka oglasa:</label> <input type="date" name="expiringDate" value="${response.data.DatumIsteka}">
-            <label>Cena:</label> <input type="number" name="vrednost" value="${response.data.Cena.vrednost}"> <select name="valuta">
+            <br><br>
+            <label style="margin-left:5%">Datum isteka oglasa:</label> <input type="date" name="expiringDate" value="${response.data.DatumIsteka}"><br><br>
+            <label style="margin-left:5%">Cena:</label> <input type="number" name="vrednost" value="${response.data.Cena.vrednost}"> <select name="valuta">
                                                                                                                     <option value="RSD">RSD</option>
                                                                                                                     <option value="EUR">EUR</option>
-                                                                                                                </select>
-            <label>Tekst:</label> 
+                                                                                                                </select><br><br>
+            <label style="margin-left:5%">Tekst:</label> 
             <input type="text" name="tekst" value="${response.data.Tekst}">
-            <br>
-            <label>Oznake:</label>
-            <input type="text" name="oznaka" value="${response.data.Oznaka}">
-            <label>Email:</label><input type="text" name="vrednost" value="${response.data.Email[0].vrednost}"><select name="tipMaila">
+            <br><br>
+            <label style="margin-left:5%">Oznake:</label>
+            <input type="text" name="oznaka" value="${response.data.Oznaka}"><br><br>
+            <label style="margin-left:5%">Email:</label><input type="text" name="vrednost" value="${response.data.Email[0].vrednost}"><select name="tipMaila">
                                                                                                     <option value="${response.data.Email[0].email}">${response.data.Email[0].email}</option>
                                                                                                     <option value="privatni">Privatni</option>
                                                                                                     <option value="sluzbeni">Sluzbeni</option>
-                                                                                                </select>
+                                                                                                </select><br><br>
             
         `
         res.send(procitajPogledZaNaziv('izmena').replace("#{data}",prikaz));
@@ -131,14 +130,13 @@ app.post("/filtrirajPoKategoriji", (req,res) => {
             prikaz += 
             `
                 <tr>
-                    <td>${element.Id}</td>
                     <td>${element.Kategorija}</td>
                     <td>${element.DatumIsteka}</td>
                     <td>${element.Cena.valuta}</td>
                     <td>${element.Cena.vrednost}</td>
                     <td>${element.Tekst}</td>
                     <td>${element.Oznaka}</td>
-                    <td>${element.Email}</td>
+                    <td>${element.Email[0].vrednost}</td>
                     <td><a href="/izmeni/${element.Id}">Izmeni</a></td>
                     <td><a href="/obrisi/${element.Id}">Obrisi</a></td>
                 </tr>
