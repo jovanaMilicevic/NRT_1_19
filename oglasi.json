@@ -1,21 +1,58 @@
 [
     {
-        "Id": 0,
-        "Kategorija": "stanovi",
-        "DatumIsteka": "12.9.2022.",
+        "Id": 2,
+        "Kategorija": "alati",
+        "DatumIsteka": "2022-06-04",
         "Cena": {
-            "valuta": "RSD",
-            "vrednost": 180.125
+            "valuta": "EUR",
+            "vrednost": "22.22"
         },
-        "Tekst": "Prodajem stan brt nzm sta ti nije jasno",
+        "Tekst": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         "Oznaka": [
-            "boze",
-            "pomozi"
+            "aaacccccccccc"
         ],
         "Email": [
             {
-                "email": "privatni",
-                "vrednost": "primer@gmail.com"
+                "email": "Privatni",
+                "vrednost": "asd@gmail.com"
+            }
+        ]
+    },
+    {
+        "Id": 5,
+        "Kategorija": "automobili",
+        "DatumIsteka": "2022-06-04",
+        "Cena": {
+            "valuta": "RSD",
+            "vrednost": "22"
+        },
+        "Tekst": "Polovan auto, audi r8",
+        "Oznaka": [
+            "aaacccccccccc"
+        ],
+        "Email": [
+            {
+                "email": "Privatni",
+                "vrednost": "asd@gmail.com"
+            }
+        ]
+    },
+    {
+        "Id": 6,
+        "Kategorija": "alati",
+        "DatumIsteka": "2022-06-04",
+        "Cena": {
+            "valuta": "RSD",
+            "vrednost": "566"
+        },
+        "Tekst": "Cekic",
+        "Oznaka": [
+            "Cekic"
+        ],
+        "Email": [
+            {
+                "email": "Sluzbeni",
+                "vrednost": "cekic@email.com"
             }
         ]
     }
